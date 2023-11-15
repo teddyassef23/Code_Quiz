@@ -100,6 +100,9 @@ const quizQuestions = [
       document.getElementById("timer").textContent = timeLeft;
   
       // End the quiz if time runs out
+    //  if (timeLeft < 10){
+    //     timeLeft.style.add("color");
+    //  }
       if (timeLeft <= 0) {
         endQuiz();
       }
