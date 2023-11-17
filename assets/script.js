@@ -14,6 +14,35 @@ const quizQuestions = [
       options: ["Hors", "God", "Sheep", "Camel"],
       correctAnswer: "Hors"
     },
+
+
+    {
+      question: "Who founded Amazon? ",
+      options: ["Jeon Williams", "Jeff Bezos", "Stiv Harbin", "Elen Mask"],
+      correctAnswer: "Jeff Bezos"
+    },
+    {
+      question: "Which US agency has the motto “Fidelity, Bravery, Integrity”?",
+      options: ["General Services Administration", "American Battle Monuments Commission", "United States Department of Defense", "FBI"],
+      correctAnswer: "FBI"
+    },
+    {
+      question: "Whose assassination led to the beginning of World War One? ",
+      options: ["Franz Ferdinand", "Theodore Roosevelt", "Archduke Franz Ferdinand", "Douglas Haig"],
+      correctAnswer: "Franz Ferdinand"
+    },
+    {
+      question: "How many colors are there in a rainbow? ",
+      options: ["Tan", "Twowalve", "Seven", "Nighn"],
+      correctAnswer: "Seven"
+    },
+    {
+      question: "4.	Name the longest river in the world?",
+      options: ["Yellow River", "Nile", "Amazon", "Mississippi"],
+      correctAnswer: "Nile"
+    },
+
+
     {
       question: "Which country is responsible for giving us pizza and pasta??",
       options: ["Acquired Immune Deficiency Syndrome", "Acquired Immune Deficiency Syndrome", "American Immune Deficiency Syndrome", "Acquired Immune Deficet Syndrome"],
@@ -34,8 +63,9 @@ const quizQuestions = [
   // Variables to track quiz state
   let currentQuestionIndex = 0;
   let score = 0;
-  let timeLeft = 30;
+  let timeLeft = 40;
   let timerInterval;
+  var timechecker = document.getElementById("timer-container");
   
   // Function to start the quiz
   function startQuiz() {
@@ -70,21 +100,25 @@ const quizQuestions = [
         checkAnswer(option);
       });
     });
+
   }
   
   // Function to check the selected answer
   function checkAnswer(selectedOption) {
     const currentQuestion = quizQuestions[currentQuestionIndex];
-  
+    const correct = document.getElementById("answer-buttons");
+
     // Check if the selected answer is correct
     if (selectedOption === currentQuestion.correctAnswer) {
       score++;
+
     }
   
     // Move to the next question or end the quiz if all questions are answered
     currentQuestionIndex++;
   
     if (currentQuestionIndex < quizQuestions.length) {
+     
       displayQuestion();
     } else {
       endQuiz();
@@ -95,15 +129,21 @@ const quizQuestions = [
   function startTimer() {
     timerInterval = setInterval(function() {
       timeLeft--;
-  
+      if(timeLeft <= 10){
+        timechecker.setAttribute('class', 'color');
+      }
+          
       // Update the timer text
       document.getElementById("timer").textContent = timeLeft;
-  
+     
       // End the quiz if time runs out
     //  if (timeLeft < 10){
     //     timeLeft.style.add("color");
     //  }
+
+
       if (timeLeft <= 0) {
+        
         endQuiz();
       }
     }, 1000);
