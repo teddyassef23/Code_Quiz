@@ -78,12 +78,26 @@ body{
     display: none;
 }
 
+#answer{
+    color: #8e0606;
+    
+    -webkit-animation: visibility 0ms 4.5s both;
+    animation: visibility 0ms 4.5s both;
+}
+
 .correct{
-    background: #9aeabc ;
+    color: aqua;
 }
 
 .incorrect{
-    background: #ff9393 ;
+    color: rgb(73, 8, 8); 
+}
+
+
+
+#answers{
+    visibility: hidden;
+    font: italic 1.2rem "Fira Sans", serif;
 }
 
 .color{
