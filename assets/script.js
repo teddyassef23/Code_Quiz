@@ -1,6 +1,3 @@
-//codewithcurious.com
-
-
 
 // Define an array of quiz questions
 const quizQuestions = [
@@ -69,9 +66,6 @@ var timechecker = document.getElementById("timer-container");
 var answercheck = document.getElementById("answer");
 
 
-
-
-
 // Function to start the quiz
 function startQuiz() {
   // Hide the start button and display the first question
@@ -113,13 +107,13 @@ function displayQuestion() {
 }
 
 
- const answerConfirm = document.getElementById('answers');
-function showTime(){
-  
+const answerConfirm = document.getElementById('answers');
+function showTime() {
+
   answerConfirm.style.visibility = "visible";
 }
 
-function hideTime(){
+function hideTime() {
   answerConfirm.style.visibility = "hidden";
 }
 
@@ -127,35 +121,35 @@ function hideTime(){
 function checkAnswer(selectedOption) {
   const currentQuestion = quizQuestions[currentQuestionIndex];
 
- 
+
 
   // Check if the selected answer is correct
   if (selectedOption === currentQuestion.correctAnswer) {
     answerConfirm.textContent = "Greate answer";
     answerConfirm.classList.remove("incorrect");
-    answerConfirm.classList.add("correct"); 
-   setTimeout("showTime()", 10);
-   setTimeout("hideTime()", 300);
+    answerConfirm.classList.add("correct");
+    setTimeout("showTime()", 10);
+    setTimeout("hideTime()", 300);
     score++;
-    
-} else {
-  answerConfirm.textContent = "Worng";
-  answerConfirm.classList.remove("correct");
-  answerConfirm.classList.add("incorrect"); 
-  setTimeout("showTime()", 10);
-  setTimeout("hideTime()", 300);
-}
 
-// Move to the next question or end the quiz if all questions are answered
-currentQuestionIndex++;
-
-if (currentQuestionIndex < quizQuestions.length) {
-  // answercheck.innerText = "";
-  displayQuestion();
-} else {
-  endQuiz();
-}
+  } else {
+    answerConfirm.textContent = "Worng";
+    answerConfirm.classList.remove("correct");
+    answerConfirm.classList.add("incorrect");
+    setTimeout("showTime()", 10);
+    setTimeout("hideTime()", 300);
   }
+
+  // Move to the next question or end the quiz if all questions are answered
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex < quizQuestions.length) {
+    // answercheck.innerText = "";
+    displayQuestion();
+  } else {
+    endQuiz();
+  }
+}
 
 // Function to start the timer
 function startTimer() {
